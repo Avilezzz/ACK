@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/a229be9532.js" crossorigin="anonymous"></script>
+  <style>
+  
+  body{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #F1FFCA;
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    font-family: sans-serif;
+  }
+    #descargarBtn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #descargarBtn:hover {
+      background-color: #45a049;
+    }
+    .pie{
+      position: absolute;
+      bottom: 0;
+      
+    }
+    .pie p{
+      color: #4D4D4D
+    }
+  </style>
+</head>
+<body>
+
+
+<a id="descargarBtn" href="cupoO.pdf">Descargar archivo   <i class="fa-solid fa-file-pdf" style="color: #ffffff;"></i></a>
+
+
+
+
+<footer class="pie">
+  <p>&copy; 2023 Luis Avilez. Web exclusiva para Karen</p>
+</footer>
+<script>
+  document.getElementById("descargarBtn").addEventListener("click", function() {
+    // Puedes personalizar el mensaje de confirmación
+    var confirmacion = confirm("¿Estás seguro de que deseas descargar el archivo?");
+    
+    if (confirmacion) {
+      // Simulamos una espera de 2 segundos antes de iniciar la descarga
+      setTimeout(function() {
+        // Cambia la ruta del archivo según tus necesidades
+        var rutaArchivo = "cupoO.pdf";
+        
+        // Iniciamos la descarga
+        var link = document.createElement("a");
+        link.href = rutaArchivo;
+        link.download = "cupoO.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 2000);
+    }
+  });
+</script>
+
+</body>
+</html>
